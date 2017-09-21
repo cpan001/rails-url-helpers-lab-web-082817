@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :students, only: :index
+  resources :students, only: [:index, :show]
 
   # This show route can be refactored into the above resources method call, like so:
   # resources :students, only: [:index, :show]
@@ -8,13 +8,4 @@ Rails.application.routes.draw do
 
   get "students/:id/activate", to: "students#activate", as: 'activate_student'
 
-  resources :students, only: :show
 end
-
-
-# Example resource route with concerns:
-#   concern :toggleable do
-#     post 'toggle'
-#   end
-#   resources :posts, concerns: :toggleable
-#   resources :photos, concerns: :toggleable
